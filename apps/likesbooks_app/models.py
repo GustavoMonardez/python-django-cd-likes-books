@@ -12,6 +12,8 @@ class Book(models.Model):
     name = models.CharField(max_length=255)
     desc = models.CharField(max_length=255)
     uploader = models.ForeignKey(User, related_name="uploaded_books")
+    # this should have been:
+    # liking_users = models.ManyToManyField(User, related_name="liked_books")
     liked_books = models.ManyToManyField(User, related_name="liking_users")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
